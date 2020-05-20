@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.bar {
+  height: 40px;
+  background-color: blue;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 4px;
+  width: 100%;
+}
+.currentWheather {
+  display: flex;
+  margin:  auto;
+  border: 2px outset blue;
+  border-radius: 8px;
+  width: 1110px;
+  margin-bottom: 10px;
+
+}
+.imgCurrent {
+  width: 300px;
+}
+
+.infoCurrent{
+  padding-top: 20px;
+  line-height: 30px;
+}
+.dailyWeatherDayAll {
+  width: 1110px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.dailyWeatherDayOne {
+  width: 246px;
+  border: 2px outset blue;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
