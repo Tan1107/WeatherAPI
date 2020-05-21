@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./styles.css";
+import Moment from "react-moment";
+import "moment-timezone";
 
 export default class WeatherApp extends Component {
   constructor(props) {
@@ -29,21 +31,25 @@ export default class WeatherApp extends Component {
     if (this.state.weatherData.current) {
       const { current } = this.state.weatherData;
       const imageUrl = `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`;
-      var moment = require('moment')
-
       return (
         <div className="currentWheather">
           <img className="imgCurrent" src={imageUrl} />
           <div className="infoCurrent">
-            <p>Hôm nay là: moment({current.dt}).format('dddd') </p>
+            <Moment format="HH:mm DD.MM.YYYY" unix>
+              {current.dt}
+            </Moment>
             <h1>{current.temp} °C</h1>
             <h2>{current.weather[0].description}</h2>
             <p>Cảm Giác: {current.feels_like} °C</p>
             <p>Độ Ẩm: {current.humidity} %</p>
             <p>Áp Suất: {current.pressure}</p>
             <p>Tốc Độ Gió: {current.wind_speed}</p>
-            <p>Mặt Trời Mọc: {Date(current.sunrise)}</p>
-            <p>Mặt Trời Lặn: {Date(current.sunset)}</p>
+            <Moment className="sunrise" format="[Măt Trời Mọc: ] HH:mm" unix>
+              {current.sunrise}
+            </Moment>
+            <Moment format="[Mặt Trời Lặn:] HH:mm" unix>
+              {current.sunset}
+            </Moment>
           </div>
         </div>
       );
@@ -58,8 +64,13 @@ export default class WeatherApp extends Component {
         return (
           <div className="dailyWeatherDayOne">
             <div>
-              <p>Nhiệt Độ: {el.temp.day} °C</p>
-              <p>Độ Ẩm: {el.humidity} %</p>
+              <Moment className="moment" format="DD/MM" unix>
+                {el.dt}
+              </Moment>
+              <h3>
+                {el.temp.min}-{el.temp.max}°C
+              </h3>
+              <p>Độ Ẩm: {el.humidity}%</p>
             </div>
             <img src={imageUrl} style={{ width: 50 }} />
             <h4>{el.weather[0].description}</h4>

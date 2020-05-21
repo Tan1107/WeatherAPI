@@ -13,18 +13,17 @@
 }
 .currentWheather {
   display: flex;
-  margin:  auto;
+  margin: auto;
   border: 2px outset blue;
   border-radius: 8px;
   width: 1110px;
   margin-bottom: 10px;
-
 }
 .imgCurrent {
   width: 300px;
 }
 
-.infoCurrent{
+.infoCurrent {
   padding-top: 20px;
   line-height: 30px;
 }
@@ -44,4 +43,10 @@
   margin-top: 20px;
   padding: 10px;
   text-align: center;
+}
+.sunrise {
+  display: block;
+}
+.moment{
+  font-size: 14px;
 }

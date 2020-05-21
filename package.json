@@ -9,9 +9,11 @@
     "bootstrap": "^4.5.0",
     "dependencies": "0.0.1",
     "moment": "^2.26.0",
+    "moment-timezone": "^0.5.31",
     "peer": "^0.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-moment": "^0.9.7",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.4.1"
   },
