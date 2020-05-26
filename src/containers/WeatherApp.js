@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./styles.css";
 import "moment-timezone";
-import CurrentWeather from "./CurrentWeather";
+import CurrentWeather from "../components/CurrentWeather";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import DailyWeatherList from "./DailyWeatherList";
-import SearchAppBar from "./SearchAppBar";
+import DailyWeatherList from "../components/DailyWeatherList";
+import SearchAppBar from "../components/SearchAppBar";
 
 export default class WeatherApp extends Component {
   constructor(props) {
@@ -15,12 +15,12 @@ export default class WeatherApp extends Component {
     };
   }
 
+
   componentDidMount() {
-    this.getWeatherData();
+    this.getWeatherData(this.state.cityName);
   }
 
-  getWeatherData = async () => {
-    const city = this.state.cityName;
+  getWeatherData = async (city) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=4451f0cc1d6e5960079c7eb4634f7df8`;
     const response = await fetch(url);
     const responseJson = await response.json();
@@ -31,7 +31,7 @@ export default class WeatherApp extends Component {
   };
 
   renderContent = () => {
-    if (this.state.weatherData) {
+    if (this.state.weatherData.main) {
       return (
         <React.Fragment>
           <CurrentWeather currentWeather={this.state.weatherData} />
@@ -44,7 +44,9 @@ export default class WeatherApp extends Component {
   render() {
     return (
       <div className="wheather">
-        <SearchAppBar search={this.state.cityName} />
+        <SearchAppBar
+          getWeatherDataCity={this.getWeatherData}
+        />
         {this.renderContent()}
       </div>
     );

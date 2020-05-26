@@ -42,10 +42,37 @@
   font-size: 14px;
 }
 
-.containerItem{
+.containerItem {
   width: 600px;
   display: flex;
   justify-content: space-between;
   margin: auto;
   text-align: center;
+}
+.navBar {
+  justify-content: space-between;
+  flex-grow: 1;
+}
+.buttonSearch {
+  margin-left: 1000px;
+  display: flex;
+  position: "relative";
+  background-color: brown;
+  border-radius: 8px;
+  width: "100%";
+}
+.searchIcon {
+  padding: 10px;
+  height: "100%";
+  position: "absolute";
+  pointer-events: "none";
+  display: "flex";
+  align-items: "center";
+  justify-content: "center";
+}
+.buttonSearch:hover {
+  background-color: burlywood;
+}
+
+.inputBase {
 }
