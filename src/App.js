@@ -4,6 +4,7 @@ import List from "./components/List";
 import { Input } from "reactstrap";
 import "./components/styles.css";
 import AddForm from "./components/AddForm";
+import SearchAppBar from "./components/SearchAppBar";
 
 const toDoList = [
   { id: 0, name: "Đi học", isDone: false },
@@ -20,13 +21,10 @@ export default class App extends React.Component {
     };
   }
 
-
-  componentDidMount(){
-	  console.log("didmount")
+  componentDidMount() {
+    console.log("didmount");
   }
-  static getDerivedStateFromProps(props, state){
-	  
-  }
+  static getDerivedStateFromProps(props, state) {}
   // removeItem = (index) => {
   removeItem = (id) => {
     const list = [...this.state.toDoList];
@@ -62,8 +60,7 @@ export default class App extends React.Component {
       id: this.state.toDoList.length + 1,
       isDone: false,
     };
-
-    const newList = [...this.state.toDoList, newToDo];
+    const newList = [...this.state.toDoList];
     this.setState({
       toDoList: newList,
     });
@@ -71,8 +68,10 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="list-container">
+        <SearchAppBar addToDODO={this.addToDO} />
+        {/* <SearchAppBar addToDODO={this.addToDO} /> */}
+        <div className="containerItem">
         <div>
-          <AddForm addToDODO={this.addToDO} />
           <h3>ToDo</h3>
           <List
             list={this.state.toDoList.filter((el) => el.isDone === false)}
@@ -86,8 +85,10 @@ export default class App extends React.Component {
             removeItem={this.removeItem}
           />
         </div>
+        </div>
         <p>
-          DONE {this.state.toDoList.filter((el) => el.isDone === true).length} /{" "}
+          {" "}
+          DONE {this.state.toDoList.filter((el) => el.isDone === true).length} /
           {this.state.toDoList.length}
         </p>
       </div>

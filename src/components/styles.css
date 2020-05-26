@@ -2,15 +2,6 @@
   margin: 0;
   padding: 0;
 }
-.bar {
-  height: 40px;
-  background-color: blue;
-  color: white;
-  font-size: 24px;
-  text-align: center;
-  padding-top: 4px;
-  width: 100%;
-}
 .currentWheather {
   display: flex;
   margin: auto;
@@ -47,6 +38,14 @@
 .sunrise {
   display: block;
 }
-.moment{
+.moment {
   font-size: 14px;
+}
+
+.containerItem{
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  text-align: center;
 }
